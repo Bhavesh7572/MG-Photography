@@ -1,0 +1,528 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar */
+/* ✅ Navbar */
+header {
+    background-color: #333;
+    width: 100%;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* ✅ Desktop View: Logo on Left, Menu on Right */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* ✅ Logo Always on Left */
+nav .logo {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    flex: 1; /* Takes available space */
+}
+
+/* ✅ Navbar Links (Windows View) */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ Spacing Between Menu Items */
+nav ul li {
+    margin: 0 15px;
+}
+
+/* ✅ Navbar Links */
+nav ul li a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* ✅ Mobile Menu Icon */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ✅ Mobile View: Logo Left, Menu Icon Right */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: space-between; /* ✅ Keeps logo on left, menu icon on right */
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: block; /* ✅ Show Menu Icon on Mobile */
+        order: 2; /* ✅ Move to the right */
+    }
+
+    nav .logo {
+        text-align: left; /* ✅ Keep logo on the left */
+        flex: 1;
+    }
+
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav .nav-links.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+
+/* ✅ Home Section */
+.home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('images/Untitled-1.jpg') no-repeat center center/cover;
+}
+
+.home h1 {
+    font-size: 3em;
+    color: white;
+}
+
+.home p {
+    font-size: 1.5em;
+    color: white;
+}
+
+.btn {
+    background-color: #A7B49E;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+/* Portfolio Section */
+.portfolio {
+    height: 75vh;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #5C7285;
+}
+
+.portfolio h2 {
+    font-size: 2.5em;
+}
+
+/*Photos */
+.ex{
+    min-height: 50vh;
+    display: grid;
+    place-items: center;
+    
+}
+.slider{
+    height: 400px;
+    margin: auto;
+    position: relative;
+    width: 99%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+.slide-track{
+    display: flex;
+    width: calc(250px * 18);
+    animation: scroll 40s linear infinite;
+}
+
+.slide-track:hover{
+    animation-play-state: paused;
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 9));
+    }
+}
+
+.slide{
+    height: 200px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    perspective: 100px;
+}
+
+.slide img{
+    width: 100%;
+    transition: transform 1s;
+}
+
+.slide img:hover{
+    transform: translateZ(25px);
+}
+
+/* About Section */
+/* ✅ About Section (Desktop & Mobile Friendly) */
+.about {
+    display: flex;
+    flex-wrap: wrap; /* ✅ Ensures elements stack on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #818C78;
+    text-align: left;
+}
+
+/* ✅ About Us Text */
+.contact-about {
+    width: 50%;
+    padding: 20px;
+}
+
+.con {
+    max-width: 600px;
+}
+
+.con h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.con p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* ✅ Image & Social Media */
+.about-me {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.me-img {
+    width: 80%;
+    max-width: 350px;
+}
+
+.me-img img {
+    width: 100%;
+    border-radius: 30px;
+}
+
+/* ✅ Social Media Links */
+.social {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-sci {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.home-sci a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #111;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #0ef;
+    text-decoration: none;
+}
+
+/* ✅ Mobile Responsiveness */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-about,
+    .about-me {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .con h2 {
+        font-size: 2em;
+    }
+
+    .con p {
+        font-size: 1em;
+    }
+
+    .me-img {
+        width: 60%;
+    }
+}
+
+
+/* Services Section */
+/* ✅ Services Section */
+.services {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #A7B49E;
+}
+
+/* ✅ Flexbox Layout for Services */
+.main {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* ✅ Ensures elements stack on small screens */
+    gap: 20px;
+}
+
+.service-box {
+    width: 45%; /* ✅ Each column takes half width on larger screens */
+    min-width: 300px;
+}
+
+/* ✅ Full Width Service Centered */
+.full-width-service {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* ✅ Centers content */
+    margin-top: 20px;
+}
+
+/* ✅ Center the Service Box Inside */
+.full-width-service .service {
+    max-width: 60%; /* ✅ Restrict width for better readability */
+    text-align: center;
+}
+
+/* ✅ Service Box Styling */
+.service {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* ✅ Titles and Text */
+.services h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.service h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 1.2em;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box {
+        width: 100%;
+    }
+
+    /* ✅ Full Width Service Stays Centered in Mobile */
+    .full-width-service {
+        justify-content: center;
+    }
+
+    .full-width-service .service {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .services h2 {
+        font-size: 2em;
+    }
+
+    .service h3 {
+        font-size: 1.8em;
+    }
+
+    .service p {
+        font-size: 1em;
+    }
+}
+
+
+
+/* Contact Section */
+/* ✅ Contact Section */
+.contact {
+    display: flex;
+    flex-wrap: wrap; /* ✅ Allows stacking on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #E2E0C8;
+    text-align: left;
+}
+
+/* ✅ Contact Details */
+.contact-details {
+    width: 48%;
+    padding: 20px;
+}
+
+.details h1 {
+    font-size: 3em;
+    font-family: cursive;
+    margin-bottom: 10px;
+}
+
+.details h5 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.details p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* ✅ Contact Form */
+.contact-form {
+    width: 48%;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ✅ Form Inputs */
+.contact form {
+    text-align: left;
+}
+
+.contact label {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact button {
+    background-color: #f0a500;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* ✅ Icons */
+.iconn {
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+    .contact {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-details,
+    .contact-form {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .details h1 {
+        font-size: 2.5em;
+    }
+
+    .details p {
+        font-size: 1em;
+    }
+
+    .contact input,
+    .contact textarea {
+        font-size: 1em;
+    }
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.1em;
+}
+footer a{
+    text-decoration-line:underline ;
+}
